@@ -6,15 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class UserHelper {
 	private String name,password,email,gender;
-<<<<<<< Updated upstream
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-=======
->>>>>>> Stashed changes
+	
 	//@DateTimeFormat(pattern = "yyyy-MM-dd")
 	//private Date Date;
 	public String getName() { 

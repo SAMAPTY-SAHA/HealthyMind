@@ -132,34 +132,21 @@ public class UserAccountController {
 			return "Success";
 		}
 	}
-<<<<<<< Updated upstream
-=======
-	
-	
->>>>>>> Stashed changes
+
 	@RequestMapping(value = "/updateProfile",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String updateProfile(@RequestBody User user) {
 		userRepository.save(user);
 		return "Success";
 	}
-<<<<<<< Updated upstream
+
 	
 	@RequestMapping(value="/update",method = RequestMethod.POST)
 	@ResponseBody
 	public String test(@RequestBody UserHelper user,@RequestParam("userID")int id) {
 		
 		User exist = userRepository.findByUserid(id);
-		
-=======
-
-	@RequestMapping(value="/update",method = RequestMethod.POST)
-	@ResponseBody
-	public String test(@RequestBody UserHelper user,@RequestParam("userID")int id) {
-
-		User exist = userRepository.findByUserid(id);
-
->>>>>>> Stashed changes
+	
 		System.out.println(exist.getEmailId());
 		exist.setEmailId(user.getEmail());
 		exist.setGender(user.getGender());

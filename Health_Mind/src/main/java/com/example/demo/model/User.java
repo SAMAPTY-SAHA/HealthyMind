@@ -25,18 +25,10 @@ public class User {
 	private int userid;
 	@Column(name = "name")
 	private String name;
-	@Column(name="gender")
-	private String gender;
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
 	private String emailId;
 	private String password;
-	//@DateTimeFormat(pattern = "yyyy-MM-dd")
-	//private Date Date;
+	// //@DateTimeFormat(pattern = "yyyy-MM-dd")
+	// //private Date Date;
 	private boolean isEnabled;
 	@OneToMany(mappedBy = "user")
     @JsonBackReference
@@ -96,6 +88,8 @@ public class User {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
+	
+	
 	@Column(name="gender")
 	private String gender;
 	public String getGender() {
@@ -104,6 +98,9 @@ public class User {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	
+	
+	
 	
 	
 	
