@@ -99,6 +99,34 @@ public class User {
 		this.gender = gender;
 	}
 	
+	@Column(name="profession")
+	private String profession;
+	@Column(name="phn_no")
+	private String phn_no;
+	@Column(name="bio")
+	private String bio;
+	public String getProfession() {
+		return profession;
+	}
+	public void setProfession(String profession) {
+		this.profession = profession;
+	}
+	public String getPhn_no() {
+		return phn_no;
+	}
+	public void setPhn_no(String phn_no) {
+		this.phn_no = phn_no;
+	}
+	public String getBio() {
+		return bio;
+	}
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+	
+	
+	
+	
 	
 	
 	

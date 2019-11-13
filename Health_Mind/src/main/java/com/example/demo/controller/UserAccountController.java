@@ -151,6 +151,9 @@ public class UserAccountController {
 		exist.setEmailId(user.getEmail());
 		exist.setGender(user.getGender());
 		exist.setName(user.getName());
+		exist.setBio(user.getBio());
+		exist.setPhn_no(user.getPhn_no());
+		exist.setProfession(user.getProfession());
 		userRepository.save(exist);
 		return "Success";
 	}
