@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.model.Post;
 import com.example.demo.model.PostHelper;
@@ -40,8 +41,18 @@ public class PostController {
 	public Post postDetails(@PathVariable Long articleId) {
 		return postRepository.getOne(articleId);
 	}
+	@RequestMapping(value="/blog/update")
+	@ResponseBody
+	public String postUpdate(@RequestBody PostHelper post,@RequestParam(value = "postID")int id) {
+		Long pId = Long.parseLong(Integer.toString(id));
+		Post exist = postRepository.getOne(pId);
+		exist.setBody(post.getBody());
+		postRepository.save(exist);
+		return "SUccess";
+	}
 	
 	@PostMapping(value = "/blog/create",consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
 	public String createPost(@RequestBody PostHelper post,@RequestParam(value = "userID") int userID ) {
 		Post postToSubmit = new Post();
 		//postToSubmit.setTitle(post.getTitle());
