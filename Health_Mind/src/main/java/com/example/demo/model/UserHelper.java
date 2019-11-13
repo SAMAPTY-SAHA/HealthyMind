@@ -5,7 +5,13 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class UserHelper {
-	private String name,password,email;
+	private String name,password,email,gender;
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	//@DateTimeFormat(pattern = "yyyy-MM-dd")
 	//private Date Date;
 	public String getName() { 

@@ -50,7 +50,7 @@ public class PostController {
 		postToSubmit.setcontentHtml(post.getContentHTML());
 		User user = userRepository.findByUserid(userID);
 		postToSubmit.setUser(user);
-		//postToSubmit.setTags(post.getTaging());
+		//postToSubmit.setTags(post.getTaging()); 
 		//List<Tag>existingList  = post.getTaging();
 //		for(Tag temp : post.getTaging()) {
 //			if(existingList.contains(temp))

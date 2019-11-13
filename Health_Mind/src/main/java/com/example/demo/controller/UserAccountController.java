@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -126,10 +127,30 @@ public class UserAccountController {
 			mailMessage.setFrom("sahasamapty@gmail.com");
 			mailMessage.setText("To confirm your account, please click here : "
 			+"http://localhost:8081/confirm-account?token="+confirmationToken.getConfirmationToken());
-			
+			userRepository.save(temp);
 			emailSenderService.sendEmail(mailMessage);
 			return "Success";
 		}
+	}
+	@RequestMapping(value = "/updateProfile",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String updateProfile(@RequestBody User user) {
+		userRepository.save(user);
+		return "Success";
+	}
+	
+	@RequestMapping(value="/update",method = RequestMethod.POST)
+	@ResponseBody
+	public String test(@RequestBody UserHelper user,@RequestParam("userID")int id) {
+		
+		User exist = userRepository.findByUserid(id);
+		
+		System.out.println(exist.getEmailId());
+		exist.setEmailId(user.getEmail());
+		exist.setGender(user.getGender());
+		exist.setName(user.getName());
+		userRepository.save(exist);
+		return "Success";
 	}
 
 }
